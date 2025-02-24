@@ -68,3 +68,65 @@ print(liste)
 # CSV einlesen
 
 
+file = open("Hallo du,", "r")
+for line in file:
+    print(line)
+    print("Wurmtext der Zeilen trennt")
+
+# \n  --> geht in neue Zeile - steht ebenfalls in jeder Zeile der Textdatei, nur, dass man es nicht sieht
+
+file = open("Hallo du,", "r")
+for line in file:
+    print(line.strip()) #entfernt Steuer- und Leerzeichen weg
+
+
+# Datei beschreiben
+    
+file = open("schreiben.txt", "w") #"a" bedeutet append, hänge Elemente einfach nur am Ende dazu
+
+students =["Nadina", "Dunja", "Mona", "Clara"]
+
+for student in students:
+    file.write(student + "\n")
+
+file.write("So einfach kannst du eine Datei erstellen \n& reinschreiben")
+
+file.close()
+
+# Datei und with
+
+#file.close() ist nicht so robust, denn sobald Fehler in Zeile davor erfolgt, wird file.close() gar nicht erreicht
+# mit with und as file, wird Datei in jedem Fall wieder geschlossen
+with open("Hallo du,", "r") as file:
+    for line in file:
+        print(line)
+
+# CSV öffnen
+
+
+with open ("datei.csv") as file:
+    for line in file:
+        data = line.strip().split(";")
+        print(data[0] + ": " + data[1])
+
+
+print("Muenchen;1800000;MUC".split(";"))
+
+# CSV lesen und Daten überspringen
+
+with open("datei.csv") as file:
+    for line in file:
+        data = line.strip().split(";")
+        if data[0] == "Muenchen" or data[0] == "Budapest":
+            print(data[0])
+            print(data)
+
+# Nach Zahl filtern
+            
+with open("datei.csv") as file:
+    for line in file:
+        data = line.strip().split(";")   
+        if int(data[1]) >= 2000000:
+            print(data)    
+
+
