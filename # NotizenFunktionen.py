@@ -10,6 +10,10 @@ def multi_print(): # def -- das ist der Name der Funktion - "Definiere ein Rezep
 multi_print()  # Funktion MUSS dann aber noch ausgegeben werden -- Rezept gekocht werden  
 
 # Funktion kann Parameter übergeben werden
+my_list = [4,5,8,1]
+doppelt = my_list * 2
+
+print(doppelt)
 
 def multi_print2(name): #hier wird Variable übergeben
     print(name)
